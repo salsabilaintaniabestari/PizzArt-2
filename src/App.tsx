@@ -22,6 +22,7 @@ import AdminOrdersPage from './pages/admin/AdminOrdersPage';
 import AdminInventoryPage from './pages/admin/AdminInventoryPage';
 import AdminProfilePage from './pages/admin/AdminProfilePage';
 import AdminContestPage from './pages/admin/AdminContestPage';
+import AdminGoogleDrivePage from './pages/admin/AdminGoogleDrivePage';
 import AdminProtectedRoute from './components/admin/AdminProtectedRoute';
 
 function App() {
@@ -66,6 +67,14 @@ function App() {
                       element={
                         <AdminProtectedRoute>
                           <AdminContestPage />
+                        </AdminProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="google-drive"
+                      element={
+                        <AdminProtectedRoute>
+                          <AdminGoogleDrivePage />
                         </AdminProtectedRoute>
                       }
                     />

@@ -4,7 +4,7 @@ import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft, MapPin } from 'lucide-reac
 import { useApp } from '../context/AppContext';
 import { useUserAuth } from '../context/UserAuthContext';
 import { db } from '../lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, updateDoc, doc } from 'firebase/firestore';
 
 const CartPage = () => {
   const { state, dispatch } = useApp();
@@ -134,10 +134,21 @@ const CartPage = () => {
 
     console.log('✅ All order items created successfully!');
 
-    dispatch({ type: 'ADD_POINTS', payload: Math.floor(totalPrice / 1000) });
+    const pointsEarned = Math.floor(totalPrice / 1000);
+    const newTotalPoints = (user?.points || 0) + pointsEarned;
+
+    console.log('12. Adding points - Points earned:', pointsEarned, 'New total:', newTotalPoints);
+
+    await updateDoc(doc(db, 'users', authUser.uid), {
+      points: newTotalPoints,
+    });
+
+    console.log('✅ Points updated in Firestore!');
+
+    dispatch({ type: 'ADD_POINTS', payload: pointsEarned });
     dispatch({ type: 'CLEAR_CART' });
     setShowConfirmModal(false);
-    alert('Pesanan berhasil dibuat! Pembayaran dilakukan saat pesanan diterima (COD).');
+    alert(`Pesanan berhasil dibuat! Anda mendapatkan +${pointsEarned} poin! Pembayaran dilakukan saat pesanan diterima (COD).`);
     navigate('/orders');
     
   } catch (error: any) {

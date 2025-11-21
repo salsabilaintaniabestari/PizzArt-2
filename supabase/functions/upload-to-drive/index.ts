@@ -127,7 +127,7 @@ async function uploadFileToDrive(
   const uploadData = await uploadResponse.json();
   const fileId = uploadData.id;
 
-  const publicUrl = `https://lh3.googleusercontent.com/d/${fileId}=w800?authuser=0`;
+  const publicUrl = `https://drive.google.com/uc?export=view&id=${fileId}`;
 
   return { fileId, publicUrl };
 }
@@ -151,11 +151,30 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const { file, fileName, mimeType }: UploadRequest = await req.json();
+    let uploadRequest: UploadRequest;
+    try {
+      uploadRequest = await req.json();
+    } catch (error: any) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: "Invalid JSON in request body"
+        }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    const { file, fileName, mimeType } = uploadRequest;
 
     if (!file || !fileName || !mimeType) {
       return new Response(
-        JSON.stringify({ error: "Missing required fields: file, fileName, mimeType" }),
+        JSON.stringify({
+          success: false,
+          error: "Missing required fields: file, fileName, mimeType"
+        }),
         {
           status: 400,
           headers: { ...corsHeaders, "Content-Type": "application/json" },

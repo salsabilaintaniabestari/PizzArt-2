@@ -88,7 +88,7 @@ export const UserAuthProvider = ({ children }: { children: ReactNode }) => {
         full_name,
         phone: '',
         address: '',
-        points: 0,
+        points: 100,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       };

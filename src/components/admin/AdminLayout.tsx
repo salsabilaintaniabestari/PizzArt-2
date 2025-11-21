@@ -9,6 +9,7 @@ import {
   LogOut,
   Shield,
   Trophy,
+  HardDrive,
 } from 'lucide-react';
 
 interface AdminLayoutProps {
@@ -30,6 +31,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     { path: '/admin/orders', icon: ShoppingBag, label: 'Pesanan' },
     { path: '/admin/inventory', icon: Package, label: 'Inventori' },
     { path: '/admin/contests', icon: Trophy, label: 'Kontes' },
+    { path: '/admin/google-drive', icon: HardDrive, label: 'Google Drive' },
     { path: '/admin/profile', icon: User, label: 'Profil' },
   ];
 
