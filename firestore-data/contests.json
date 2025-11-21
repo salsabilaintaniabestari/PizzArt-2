@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Summer Vibes Pizza",
+    "description": "Buat pizza yang menangkap esensi musim panas! Gunakan kreativitasmu untuk menciptakan kombinasi topping yang segar dan menyegarkan.",
+    "theme": "Summer",
+    "prize": "Rp 500.000 + Pizza Gratis Selama Setahun",
+    "start_date": "2025-01-01T00:00:00.000Z",
+    "end_date": "2025-02-28T23:59:59.000Z",
+    "status": "active",
+    "created_at": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "title": "Spicy Challenge",
+    "description": "Tantangan untuk pencinta pedas! Ciptakan pizza dengan level kepedasan yang menggugah selera.",
+    "theme": "Spicy",
+    "prize": "Rp 300.000 + Voucher Makan",
+    "start_date": "2025-02-01T00:00:00.000Z",
+    "end_date": "2025-03-15T23:59:59.000Z",
+    "status": "active",
+    "created_at": "2025-02-01T00:00:00.000Z"
+  }
+]

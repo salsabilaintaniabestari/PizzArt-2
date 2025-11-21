@@ -1,0 +1,178 @@
+[
+  {
+    "name": "Thin Crust",
+    "category": "base",
+    "stock_quantity": 100,
+    "unit": "pieces",
+    "is_available": true,
+    "low_stock_threshold": 20
+  },
+  {
+    "name": "Thick Crust",
+    "category": "base",
+    "stock_quantity": 100,
+    "unit": "pieces",
+    "is_available": true,
+    "low_stock_threshold": 20
+  },
+  {
+    "name": "Stuffed Crust",
+    "category": "base",
+    "stock_quantity": 80,
+    "unit": "pieces",
+    "is_available": true,
+    "low_stock_threshold": 15
+  },
+  {
+    "name": "Tomato Sauce",
+    "category": "sauce",
+    "stock_quantity": 50,
+    "unit": "liters",
+    "is_available": true,
+    "low_stock_threshold": 10
+  },
+  {
+    "name": "BBQ Sauce",
+    "category": "sauce",
+    "stock_quantity": 40,
+    "unit": "liters",
+    "is_available": true,
+    "low_stock_threshold": 10
+  },
+  {
+    "name": "White Sauce",
+    "category": "sauce",
+    "stock_quantity": 35,
+    "unit": "liters",
+    "is_available": true,
+    "low_stock_threshold": 8
+  },
+  {
+    "name": "Pesto Sauce",
+    "category": "sauce",
+    "stock_quantity": 30,
+    "unit": "liters",
+    "is_available": true,
+    "low_stock_threshold": 8
+  },
+  {
+    "name": "Spicy Sauce",
+    "category": "sauce",
+    "stock_quantity": 25,
+    "unit": "liters",
+    "is_available": true,
+    "low_stock_threshold": 8
+  },
+  {
+    "name": "Mozzarella Cheese",
+    "category": "cheese",
+    "stock_quantity": 60,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 15
+  },
+  {
+    "name": "Cheddar Cheese",
+    "category": "cheese",
+    "stock_quantity": 45,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 10
+  },
+  {
+    "name": "Parmesan Cheese",
+    "category": "cheese",
+    "stock_quantity": 30,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 8
+  },
+  {
+    "name": "Pepperoni",
+    "category": "meat",
+    "stock_quantity": 40,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 10
+  },
+  {
+    "name": "Italian Sausage",
+    "category": "meat",
+    "stock_quantity": 35,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 10
+  },
+  {
+    "name": "Ham",
+    "category": "meat",
+    "stock_quantity": 30,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 8
+  },
+  {
+    "name": "Chicken",
+    "category": "meat",
+    "stock_quantity": 38,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 10
+  },
+  {
+    "name": "Bacon",
+    "category": "meat",
+    "stock_quantity": 25,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 8
+  },
+  {
+    "name": "Mushrooms",
+    "category": "vegetable",
+    "stock_quantity": 20,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 5
+  },
+  {
+    "name": "Bell Peppers",
+    "category": "vegetable",
+    "stock_quantity": 25,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 5
+  },
+  {
+    "name": "Onions",
+    "category": "vegetable",
+    "stock_quantity": 22,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 5
+  },
+  {
+    "name": "Olives",
+    "category": "vegetable",
+    "stock_quantity": 18,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 5
+  },
+  {
+    "name": "Tomatoes",
+    "category": "vegetable",
+    "stock_quantity": 20,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 5
+  },
+  {
+    "name": "Spinach",
+    "category": "vegetable",
+    "stock_quantity": 15,
+    "unit": "kg",
+    "is_available": true,
+    "low_stock_threshold": 5
+  }
+]
