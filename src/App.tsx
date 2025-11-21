@@ -5,7 +5,6 @@ import { AdminProvider } from './context/AdminContext';
 import { UserAuthProvider } from './context/UserAuthContext';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import OAuthCallback from './components/common/OAuthCallback';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -92,7 +91,6 @@ function App() {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/register" element={<RegisterPage />} />
-                        <Route path="/auth/callback" element={<OAuthCallback />} />
                         <Route
                           path="/order"
                           element={

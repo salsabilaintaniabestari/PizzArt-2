@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { Upload, X, AlertCircle } from 'lucide-react';
-import { googleDriveService } from '../../services/googleDrive';
 
 interface ImageUploadProps {
   onUploadSuccess: (imageUrl: string, fileId: string) => void;
@@ -26,7 +25,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 
     setError(null);
 
-    // Validate format
     if (!acceptedFormats.includes(file.type)) {
       const errorMsg = 'Format file tidak didukung. Gunakan JPG, PNG, atau WebP.';
       setError(errorMsg);
@@ -34,7 +32,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       return;
     }
 
-    // Validate size
     const fileSizeMB = file.size / (1024 * 1024);
     if (fileSizeMB > maxSizeMB) {
       const errorMsg = `Ukuran file terlalu besar. Maksimal ${maxSizeMB}MB.`;
@@ -43,15 +40,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       return;
     }
 
-    // Check if authenticated
-    if (!googleDriveService.isAuthenticated()) {
-      const errorMsg = 'Silakan login dengan Google terlebih dahulu.';
-      setError(errorMsg);
-      onUploadError?.(errorMsg);
-      return;
-    }
-
-    // Show preview
     const reader = new FileReader();
     reader.onloadend = () => {
       setPreview(reader.result as string);
@@ -61,9 +49,36 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     setIsUploading(true);
 
     try {
-      const result = await googleDriveService.uploadImage(file);
+      const fileBase64 = await new Promise<string>((resolve, reject) => {
+        const fr = new FileReader();
+        fr.onload = () => {
+          const result = fr.result as string;
+          const base64 = result.split(',')[1];
+          resolve(base64);
+        };
+        fr.onerror = reject;
+        fr.readAsDataURL(file);
+      });
 
-      if (result.success && result.publicUrl && result.fileId) {
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/upload-to-drive`;
+      const token = localStorage.getItem('sb-auth-token');
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token ? `Bearer ${token}` : '',
+        },
+        body: JSON.stringify({
+          file: fileBase64,
+          fileName: file.name,
+          mimeType: file.type,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         onUploadSuccess(result.publicUrl, result.fileId);
       } else {
         const errorMsg = result.error || 'Gagal mengupload gambar';

@@ -31,7 +31,6 @@ import {
 } from 'firebase/firestore';
 import { CommunityPost, CommunityComment, CommunityLike, Pizza } from '../types';
 import ImageUpload from '../components/common/ImageUpload';
-import GoogleDriveConfig from '../components/common/GoogleDriveConfig';
 
 const POSTS_PER_PAGE = 15;
 
@@ -748,8 +747,6 @@ const CommunityPage = () => {
                 <X className="w-6 h-6" />
               </button>
             </div>
-
-            <GoogleDriveConfig />
 
             <div className="space-y-6">
               <div>
